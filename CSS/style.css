@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#pagina{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+#navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#CS2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: orange;
+}
