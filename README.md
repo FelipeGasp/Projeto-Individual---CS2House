@@ -7,7 +7,11 @@ ESCOPO:
 O escopo do projeto será desenvolver um website(blog) com aulas de CS2 desde o básico até o avançado contendo: 
 
 Formulário de login e cadastro 
+
 Rolagem horizontal 
+
 Fórum de vídeos online 
+
 Quiz para entedimento das aulas
+
 Compatibilidade com navegadores chromium 
