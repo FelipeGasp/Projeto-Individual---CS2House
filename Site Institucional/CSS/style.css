@@ -1,6 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
+    background-color: #635858 ;
 }
 #pagina{
     display: flex;
@@ -9,17 +13,55 @@
     align-items: center;
     height: 100%;
 }
-#navbar{
+#navbar{    
+    overflow: hidden;
+    background-color: orange;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    width: 150vh;
+    border: 2px;
+    border-radius: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#navbar a{
+    color: #F3E8E9;
     text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: orange;
+    padding: 15px 15px;
 }
 
-#CS2{
+.CS2{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: orange;
+    font-family: "Exo 2";
+    font-size: 100px;
+
+}
+.HOUSE{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(17, 0, 255);
+    font-family: "Exo 2";
+    font-style: italic;
+    font-size: 100px;
+    padding-right: 15px;
+}
+.desc{
+    font-family: "Exo 2";
+    color: white;
+    margin-top: 2%;
+    justify-content: center;
+}
+.header{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
 }
