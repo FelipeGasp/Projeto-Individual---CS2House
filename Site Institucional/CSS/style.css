@@ -1,39 +1,61 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
-    background-color: #635858 ;
+ 
 }
-#pagina{
+
+body{
+    background-image: url('Image/QUxmBnk\ \(1\).jpg');
+    background-repeat: no-repeat;
+    
+    background-size: contain;
+}
+#pagina {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    margin-top: 38%;
 }
-#navbar{    
+
+#navbar {
     overflow: hidden;
     background-color: orange;
     display: flex;
     justify-content: space-around;
-    width: 150vh;
+    width: 100%;
     border: 2px;
-    border-radius: 15px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: fixed;
+    top: 0;
 }
-#navbar a{
+
+#navbar a {
     color: #F3E8E9;
     text-align: center;
-    padding: 0px 0px;
     text-decoration: none;
     font-size: 15px;
     background-color: orange;
     padding: 15px 15px;
 }
 
-.CS2{
+#navbar a:hover {
+    background-color:gray;
+}
+
+#navbar .ativo {
+    color: #F3E8E9;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color:#0c1323;
+    padding: 15px 15px;
+}
+
+.CS2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,27 +63,35 @@
     color: orange;
     font-family: "Exo 2";
     font-size: 100px;
+    margin-top: 5px;
 
 }
-.HOUSE{
+
+.HOUSE {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: rgb(17, 0, 255);
+    color: #0c1323;
     font-family: "Exo 2";
     font-style: italic;
     font-size: 100px;
     padding-right: 15px;
 }
-.desc{
+
+.desc {
     font-family: "Exo 2";
     color: white;
     margin-top: 2%;
     justify-content: center;
+    text-align: center;
+    font-size: 25px;
 }
-.header{
+
+
+.container {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
