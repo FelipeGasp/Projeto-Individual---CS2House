@@ -8,7 +8,7 @@ O escopo do projeto será desenvolver um website(blog) com aulas de CS2 desde o 
 
 Formulário de login e cadastro 
 
-Rolagem horizontal 
+Rolagem vertical
 
 Fórum de vídeos online 
 
