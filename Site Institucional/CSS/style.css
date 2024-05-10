@@ -9,7 +9,7 @@
 body{
     background-image: url('Image/QUxmBnk\ \(1\).jpg');
     background-repeat: no-repeat;
-    
+    font-family: "Exo 2";
     background-size: contain;
 }
 #pagina {
@@ -27,7 +27,7 @@ body{
     justify-content: space-around;
     width: 100%;
     border: 2px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Exo 2";
     position: fixed;
     top: 0;
 }
