@@ -17,7 +17,9 @@ body{
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    margin-top: 38%;
+    margin-top: 33%;
+    width: 100%;
+    background-color: #a2adc8;
 }
 
 #navbar {
@@ -94,4 +96,20 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+#header{
+    background-color: orange;   
+    height: 15%;
+    width: 100%;
+}
+.quem{
+    position: absolute;
+    left: 50px;
+    top: 480px;
+    display: flex;
+    flex-direction: row;
+}
+#Quemsoueu{
+    font-size: 20px;
+    color: #FFFF;
 }
