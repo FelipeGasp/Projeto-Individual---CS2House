@@ -19,7 +19,24 @@ body{
     align-items: center;
     margin-top: 33%;
     width: 100%;
-    background-color: #a2adc8;
+}
+#pagina2{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:5%;
+    position: absolute;
+    width: 100%;
+}
+#video{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:5%;
+    width: 100%;
+    position: relative;
 }
 
 #navbar {
@@ -104,10 +121,11 @@ body{
 }
 .quem{
     position: absolute;
-    left: 50px;
-    top: 480px;
     display: flex;
+    left: 20px;
     flex-direction: row;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 #Quemsoueu{
     font-size: 20px;
