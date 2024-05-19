@@ -3,8 +3,8 @@ O Counter Strike é uma série de jogos FPS (First Person Shooter) muito famosa 
 
 First Person Shooter é um gênero de jogos eletrônicos na qual se consiste em te dar a perspectiva “primeira pessoa” e uma arma, para atirar em outros alvos, no caso do Counter Strike especificamente, os outros jogadores virtuais. 
 
-ESCOPO:
-O escopo do projeto será desenvolver um website(blog) com aulas de CS2 desde o básico até o avançado contendo: 
+
+O projeto será desenvolver um website(blog) com aulas de CS2 desde o básico até o avançado contendo: 
 
 Formulário de login e cadastro 
 
