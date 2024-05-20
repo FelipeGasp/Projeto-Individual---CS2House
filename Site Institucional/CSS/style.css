@@ -18,6 +18,7 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 33%;
+    margin-bottom: 0;
     width: 100%;
 }
 #pagina2{
@@ -28,7 +29,7 @@ body{
     position: absolute;
     width: 100%;
     filter: none;
-    margin-top: 350px;
+    margin-top: 220px;
 }
 #video{
     display: flex;
@@ -38,6 +39,7 @@ body{
     width: 100%;
     position: relative;
     filter: blur(5px);
+    height: 100%;
     scroll-behavior: smooth;
 }
 
@@ -85,7 +87,7 @@ body{
     color: orange;
     font-family: "Exo 2";
     font-size: 100px;
-    margin-top: 5px;
+    margin-top: 0px;
 
 }
 
@@ -152,8 +154,9 @@ body{
     position: absolute;
     display: flex;
     left: 80px;
+    top: 0;
     flex-direction: column;
-    margin-top: 15%;
+    /* margin-top: 1%; */
     margin-bottom: 15%;
     background-color: white;
     color: black;
@@ -167,15 +170,15 @@ body{
     transition-timing-function: ease;
 }
 .card1:hover{
-     width: 30%; 
+     width: 24%; 
 }
 .card2{
     position: absolute;
     display: flex;
     right: 140px;
     flex-direction: column;
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-top: 4%;
+    /* margin-bottom: 15%; */
     background-color: white;
     color: black;
     border-radius: 15px;
@@ -188,15 +191,14 @@ body{
     transition-timing-function: ease;
 }
 .card2:hover{
-    width: 30%;
+    width: 24%;
 }
-
 .card3{
     position: absolute;
     display: flex;
     top: 80px;
     flex-direction: column;
-    margin-top: 15%;
+    margin-top: 17%;
     margin-bottom: 15%;
     background-color: white;
     color: black;
@@ -208,7 +210,7 @@ body{
     padding-right: 15px;
     padding-bottom: 25px;
     width: 10%;
-    height: 65%;
+    /* height: 65%; */
     transition-property: width, height, padding-top;
     transition-duration: 1.2s;
     transition-timing-function: ease;
@@ -226,7 +228,7 @@ body{
 }
 .card3:hover{
     width: 12%;
-    height: 65%;
+    height: 45%;
     padding-top: 30px;
 }
 
@@ -245,6 +247,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
 }
 .porque{
     color: black;
@@ -258,28 +261,6 @@ body{
     width: 100%;
     filter: none;
     margin-top: 350px;
-}
-.card3{
-    position: absolute;
-    display: flex;
-    top: 80px;
-    flex-direction: column;
-    margin-top: 15%;
-    margin-bottom: 15%;
-    background-color: white;
-    color: black;
-    border-radius: 15px;
-    box-shadow: 5px 6px 15px black;
-    align-items: center;
-    padding-top: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    width: 10%;
-    height: 65%;
-    transition-property: width, height, padding-top;
-    transition-duration: 1.2s;
-    transition-timing-function: ease;
 }
 .card4 a{
     text-decoration: none;
