@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2House</title>
+    
+    <link rel="stylesheet" href="CSS/style login.css">
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html">Principal</a>
+        <a href="index.html#video">O Projeto</a>
+        <a href="login.html" >Login</a href="login.html">
+        <span class="ativo">Cadastro</span>
+    </div>
+    <div class="container">
+        <div id="pagina">
+            <div class="card3">
+            <h2>Porque se cadastrar?</h2>
+            <span>O cs pode mudar a sua vida assim como mudou <u>a minha!</u></span>
+            <br>O que o cs pode fazer por você:<br>
+            <ol>
+                <li>Raciocio Lógico</li>
+                <li>Disciplina</li>
+                <li>Trabalho em equipe</li>
+                <li>Memoria Muscular</li>
+            </ol>
+            </div>
+            <div class="card4">
+                <h3>Cadastre-se!</h3>
+                Insira seus dados:
+                <input type="text" placeholder="Nickname" id="ipt_nickname">
+                <br>
+                <input type="text" placeholder="E-mail" id="ipt_email">
+                <br>
+                <input type="number" placeholder="Quantas horas de jogo?" id="ipt_horas">
+                <br>
+                <input type="password" placeholder="Crie uma senha" id="ipt_senha">
+                <br>
+                <input type="password" placeholder="Confirme a senha" id="ipt_confirme">
+                <br>
+                <button onclick="cadastrar()">Cadastrar</button>
+                <div id="erro" class="espaco">
+                    <span></span>
+                </div>
+                Já possui conta?
+                <a href="login.html">Logar!</a>
+            </div>
+            </div>
+            <div id="pagina2">
+                </div>
+            </div>
+        </div>
+        <div id="header">
+            <a href="#home">Principal</a>
+            <p style="padding-top: 15px;">Todos os direitos reservados @2024 CS2House</p><a href="login.html">Login e Cadastro</a>
+        </div>
+</body>
+</html>
+<script>
+function cadastrar() {
+
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nickVar = ipt_nickname.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = ipt_confirme.value;
+    var horasVar = ipt_horas.value
+    if (
+(      nickVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      horasVar == "") 
+    ) {
+        erro.innerHTML = ' <span style="color:red;">Preencha os campos corretamente para prosseguir</span>'
+
+      finalizarAguardar();
+      return false;
+    } else if(senhaVar != confirmacaoSenhaVar){
+        erro.innerHTML = ' <span style="color:red;">Confirmação de senha não coincide</span>'
+    }  else if(ipt_email.value.indexOf('@') == -1){
+        erro.innerHTML = ' <span style="color:red;">E-mail não é válido</span>'
+    }
+    else {
+      setInterval(erro.innerHTML = '', 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nickVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        horasServer: horasVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>

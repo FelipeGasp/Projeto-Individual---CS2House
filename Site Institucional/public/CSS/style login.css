@@ -8,6 +8,7 @@
 
 body{
     background-image: url('Image/image.png');
+
     font-family: "Exo 2";
     background-size: contain;
     scroll-behavior: smooth;
