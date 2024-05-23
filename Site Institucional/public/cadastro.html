@@ -55,7 +55,7 @@
         </div>
         <div id="header">
             <a href="#home">Principal</a>
-            <p style="padding-top: 15px;">Todos os direitos reservados @2024 CS2House</p><a href="login.html">Login e Cadastro</a>
+            <p style="padding-top: 15px;">Todos os direitos reservados @2024 CS2House</p><a href="login.html">Login</a>
         </div>
 </body>
 </html>
@@ -101,8 +101,8 @@ function cadastrar() {
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nickVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
         horasServer: horasVar,
+        senhaServer: senhaVar,
       }),
     })
       .then(function (resposta) {

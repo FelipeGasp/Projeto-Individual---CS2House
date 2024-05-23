@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/style login.css">
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html">Principal</a>
+        <a href="index.html#video">O Projeto</a>
+        <span class="ativo">Login</span>
+        <a href="cadastro.html">Cadastro</a>
+    </div>
+    <div class="container">
+        <div id="pagina">
+            <div class="card4">
+                <h3>Entre já!</h3>
+                <input type="text" placeholder="Nickname" id="ipt_nickname">
+                <br>
+                <input type="password" placeholder="Insira sua senha" id="ipt_senha">
+                <br>
+                <button onclick="logar()">Logar</button>
+                <div id="erro" class="espaco">
+                    <span></span>
+                </div>
+                            </div>
+            </div>
+            <div id="pagina2">
+                </div>
+            </div>
+        </div>
+        <div id="header">
+            <a href="#home">Principal</a>
+            <p style="padding-top: 15px;">Todos os direitos reservados @2024 CS2House</p><a href="login.html">Login e Cadastro</a>
+        </div>
+</body>
+</html>
+<script>
+
+function logar() {
+        aguardar();
+
+        var nickVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+
+        if (nickVar == "" || senhaVar == "") {
+            erro.innerHTML = `<span style="color: red;">Preencha os campos corretamente</span>`;
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", nickVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nickServer: nickVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NICK_USUARIO = json.nick;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>

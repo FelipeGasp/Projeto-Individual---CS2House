@@ -55,7 +55,7 @@ body{
 }
 
 #navbar a {
-    color: #F3E8E9;
+    color: black;
     text-align: center;
     text-decoration: none;
     font-size: 15px;
@@ -121,7 +121,7 @@ body{
     background-color: orange;   
     height: 7%;
     text-align: center;
-    color: #F3E8E9;
+    color: #000000;
     text-align: center;
     text-decoration: none;
     font-size: 15px;
@@ -144,7 +144,7 @@ body{
 #direitosreservados{
     text-align: center;
     text-decoration: none;
-    color: #F3E8E9;
+    color: #000000;
     padding-top: 15px;
 }
 #header a:hover{
@@ -306,7 +306,7 @@ body{
 .card4 input{
     box-shadow: 2px 1px 3px grey;
     border-radius: 3%;
-    height: 7%;
+    height: 9%;
     padding: 2px 2px 2px 2px;
 }
 .card4 button{
