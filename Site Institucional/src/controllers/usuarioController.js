@@ -1,24 +1,16 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
-    var nick = req.body.nomeServer;
-    var email = req.body.emailServer;
+    var nick = req.body.nickServer;
     var senha = req.body.senhaServer;
-    var horas = req.body.horasServer;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+    if (nick == undefined) {
+        res.status(400).send("Seu nick está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else if(nick){
-        res.status(400).send("Seu nick está undefined");
-    } else if(horas){
-        res.status(400).send("Suas horas estão undefined");
-    }
+    } else{
 
-    else {
-
-        usuarioModel.autenticar(nick, email, senha, horas)
+        usuarioModel.autenticar(nick, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -33,14 +25,14 @@ function autenticar(req, res) {
                                         email: resultadoAutenticar[0].email,
                                         nick: resultadoAutenticar[0].nick,
                                         senha: resultadoAutenticar[0].senha,
-                                        horas: resultadoAutenticar[0].horas,
+                                        horas: resultadoAutenticar[0].horas
                                     });
                                 } else {
                                     res.status(204).json();
                                 }
                             }
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("Nome e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }

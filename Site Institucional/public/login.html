@@ -21,7 +21,7 @@
                 <br>
                 <input type="password" placeholder="Insira sua senha" id="ipt_senha">
                 <br>
-                <button onclick="logar()">Logar</button>
+                <button onclick="entrar()">Entrar</button>
                 <div id="erro" class="espaco">
                     <span></span>
                 </div>
@@ -39,10 +39,9 @@
 </html>
 <script>
 
-function logar() {
-        aguardar();
+function entrar() {
 
-        var nickVar = ipt_email.value;
+        var nickVar = ipt_nickname.value;
         var senhaVar = ipt_senha.value;
 
         if (nickVar == "" || senhaVar == "") {
@@ -77,7 +76,8 @@ function logar() {
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NICK_USUARIO = json.nick;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.HORAS_USUARIO = json.horas;
+                    sessionStorage.ID_USUARIO = json.id
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
@@ -89,6 +89,7 @@ function logar() {
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
+                error.innerHTML = 'Houve um erro ao tentar realizar o login'
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);
@@ -103,6 +104,6 @@ function logar() {
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        erro.innerHTML = '';
     }
 </script>
