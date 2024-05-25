@@ -1,0 +1,12 @@
+CREATE DATABASE cs2house;
+USE cs2house;
+CREATE TABLE usuario(
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nick VARCHAR(15),
+email VARCHAR(45),
+senha VARCHAR(16),
+horas INT);
+
+ALTER TABLE usuario MODIFY COLUMN senha VARCHAR(30);
+
+SELECT * FROM usuario;
