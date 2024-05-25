@@ -1,13 +1,12 @@
 /* pagina mural */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    padding: 0;
+    margin: 0;
+ 
 }
-
 .label-captura {
   display: flex;
   justify-content: center;
@@ -16,7 +15,7 @@ body {
 .dash-right .avisos {
   width: 100%;
   color: rgb(216, 216, 216);
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Exo 2'
 }
 
 .dash-right .avisos .container {
@@ -51,7 +50,7 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Exo 2';
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -64,7 +63,7 @@ body {
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Exo 2';
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -120,7 +119,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: white;
   height: 100vh;
   overflow: auto;
 }
@@ -281,12 +280,12 @@ body {
 }
 
 .btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Exo 2';
   border: 0;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: #e6005a;
+  color: #000000;
   background-color: white;
   margin: 5px;
   border-radius: 3px;
@@ -299,7 +298,7 @@ body {
 }
 
 .btn-white {
-  color: #e6005a;
+  color: #000000;
   background-color: white;
 
 }
@@ -348,8 +347,10 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-top-right-radius: 1%;
+  border-bottom-right-radius: 1%;
+  border-right: 3px solid #212124;
+  background-color: #111112;
 }
 
 .dash-right {
@@ -386,8 +387,9 @@ canvas {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: rgb(0, 0, 0);
+  border: 3px solid #0c1323;
+  background-color: orange;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
@@ -395,15 +397,15 @@ canvas {
 
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: #ffffff;
+  border: 3px solid #0c1323;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #000000;
   padding: 0;
   margin: 0;
 }
@@ -418,11 +420,59 @@ canvas {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
+  background-color:#0c1323;
   color: white;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+.containersecoes{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.secoes{
+  box-shadow: 1px 1px 4px gray;
+  background-color: white;
+  width: 80%;
+  height: 40%;
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  border-radius: 30px;
+  padding-top: 5px;
+
+}
+.secoes span{
+  font-size: 28px;
+}
+.secao1{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-right: 2%;
+}
+.containersecao{
+  margin-bottom: 15px;
+}
+.bemvindo{
+  position: absolute;
+  bottom: 140px;
+  left: 200px;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 4px gray;
+  width: 80%;
+  position: absolute;
+  left: 200px;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.dash{
+  background-color: #212124;
 }
