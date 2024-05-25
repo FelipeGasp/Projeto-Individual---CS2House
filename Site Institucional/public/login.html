@@ -23,9 +23,8 @@
                 <br>
                 <button onclick="entrar()">Entrar</button>
                 <div id="erro" class="espaco">
-                    <span></span>
                 </div>
-                            </div>
+                 </div>
             </div>
             <div id="pagina2">
                 </div>
@@ -89,7 +88,10 @@ function entrar() {
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                error.innerHTML = 'Houve um erro ao tentar realizar o login'
+                erro.innerHTML = '<span style="color:red; text-align:center">Houve um erro ao tentar realizar o login! Falha ao encontrar seu perfil</span>'
+                setTimeout(function () {
+                        erro.innerHTML = ''
+                    }, 5000);
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);

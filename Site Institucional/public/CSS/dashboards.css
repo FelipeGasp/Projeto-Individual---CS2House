@@ -442,7 +442,7 @@ canvas {
   top: 150px;
   left: 200px;
   border-radius: 30px;
-  padding-top: 5px;
+  padding: 5px 5px 5px 5px;
 
 }
 .secoes span{
