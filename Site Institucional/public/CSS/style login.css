@@ -287,7 +287,7 @@ body{
     transition-duration: 1.2s;
     transition-timing-function: ease;
 }
-.card4 a{
+#log{
     text-decoration: none;
     color: black;   
     font-size: large;
@@ -296,7 +296,16 @@ body{
     padding: .75rem 1.2rem;
     border-radius: .75rem;
 }
-.card4 a:hover {
+#log a{
+    text-decoration: none;
+    color: black;   
+    font-size: large;
+    background-color:#111827 ;
+    color: #FFFFFF;
+    padding: .75rem 1.2rem;
+    border-radius: .75rem;
+}
+#log a:hover {
     background-color: #374151;
   }
 .card4 h1{
