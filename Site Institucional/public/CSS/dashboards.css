@@ -123,6 +123,15 @@
   height: 100vh;
   overflow: auto;
 }
+.dash1{
+  width: 80%;
+  position: relative;
+  top: 0;
+  left: 20%;
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  overflow: auto;
+}
 
 .area-parametros-alerta {
   /* border: 2px solid pink; */
@@ -473,9 +482,6 @@ canvas {
   padding-bottom: 5px;
   text-align: center;
 }
-.dash{
-  background-color: #212124;
-}
 .grafico{
   position: absolute;
   top: 20%;
@@ -497,5 +503,13 @@ canvas {
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   border-radius: 30px;
-  right: 36%;
+  right: 38%;
+}
+.formulario{
+  background-color: whitesmoke;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10%;
 }

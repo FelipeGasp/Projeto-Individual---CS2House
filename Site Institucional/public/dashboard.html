@@ -45,7 +45,7 @@
 
         </div>
 
-        <div class="dash">
+        <div class="dash1">
             <div class="contagem">
                 <h2>Você já assistiu: </h2>
             </div>
@@ -90,25 +90,26 @@
     config
   );
   const labels1 = [
-    'Acertos',
-    'Erros',
+    '27/05/2024',
+    '28/05/2024',
+    '29/05/2024',
+    '30/05/2024',
+    '31/05/2024',
     ];
   
-    var data = {
-      labels: labels,
+    var data1 = {
+      labels: labels1,
       datasets: [{
-        label: 'Acertos',
-        backgroundColor: [
-            'rgb(255,99,132)',
-            'rgb(54,162,235)'
-        ],
-        data: [0, 10, 5],
+        label: 'Quantidade de aulas',
+        backgroundColor: '#FF9300',
+            borderColor: '#FF9300',
+        data: [1,1,2,1,3],
       }]
     };
   
     const config1 = {
       type: 'line',
-      data: data,
+      data: data1,
       options: {}
     };
     const myChart1 = new Chart(
