@@ -1,5 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
 
+
 function autenticar(req, res) {
     var nick = req.body.nickServer;
     var senha = req.body.senhaServer;
