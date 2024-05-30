@@ -72,21 +72,25 @@
     var acertosConta = 0;
     var erros = 0;
     var errosConta = 0;
+    var verificarResultado = 1;
     function verificar(){
-        if(acertos >0 || erros >0){
+        if(acertos ==1 || erros ==1){
             if(ipt_check1.checked){
             resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
             setTimeout(function () {
                         resposta.innerHTML = ''
                     }, 2500);
                     acertos ++;
+                    verificarResultado = true;
                     return true;
         }else if(ipt_check2.checked||ipt_check3.checked){
             resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
             erros++
+            verificarResultado = false;
             return false;
         } else{
             resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+            verificarResultado = false;
             return false;
         }
         }if(acertos == 0 || erros == 0){
@@ -96,17 +100,40 @@
                         resposta.innerHTML = ''
                     }, 2500);
                     acertos ++;
+                    verificarResultado = true;
                     return true;
         }else if(ipt_check1.checked||ipt_check2.checked){
             resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
-            return false;
             erros++
+            verificarResultado = false;
+            return false;
         } else{
             resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+            verificarResultado = false;
             return false;
         }
-        } return true;
-        return false;
+        }
+        if(acertos == 2 || erros == 2){
+            if(ipt_check3.checked){
+            resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+            setTimeout(function () {
+                        resposta.innerHTML = ''
+                    }, 2500);
+                    acertos ++;
+                    verificarResultado = true;
+                    return true;
+        }else if(ipt_check1.checked||ipt_check2.checked){
+            resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+            erros++
+            verificarResultado = false;
+            return false;
+        } else{
+            resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+            verificarResultado = false;
+            return false;
+        }
+        } 
+
     }
     function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
@@ -126,22 +153,26 @@
     window.location = "login.html";
 }
     function proxima(){
-        var verificarResultado = verificar();
     if (verificarResultado) {
         if (acertos == 1 || erros == 1) {
             pergunta.innerHTML = perguntas[0];
-            resposta1.innerHTML = respostas[1];
-            resposta2.innerHTML = respostas[2];
-            resposta3.innerHTML = respostas[3];
+            resposta1.innerHTML = respostas[0];
+            resposta2.innerHTML = respostas[1];
+            resposta3.innerHTML = respostas[2];
         } else if (erros == 2 || acertos == 2) {
             pergunta.innerHTML = perguntas[1];
-            resposta1.innerHTML = respostas[2];
-            resposta2.innerHTML = respostas[3];
-            resposta3.innerHTML = respostas[4];
+            resposta1.innerHTML = respostas[3];
+            resposta2.innerHTML = respostas[4];
+            resposta3.innerHTML = respostas[5];
         } else if( erros == 3 || acertos == 3){
             resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
         }
     } else if (verificarResultado == false) {
+        resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`;
+        setTimeout(function () {
+            resposta.innerHTML = '';
+        }, 2500);
+    } else if(verificarResultado == 1){
         resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`;
         setTimeout(function () {
             resposta.innerHTML = '';
