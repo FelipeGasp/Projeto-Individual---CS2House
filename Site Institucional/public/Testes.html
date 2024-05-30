@@ -36,7 +36,7 @@
 
             <div class="btn-nav">
                 <h3>Testes</h3>
-           
+
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -46,139 +46,193 @@
         </div>
 
         <div class="dash">
-           <div class="formulario">
-            <h1>Quiz (Capitulo 1)
-            </h1><br>
+            <div class="formulario">
+                <h1>Quiz (Capitulo 1)
+                </h1><br>
                 <div class="containerform1">
-                <span id="pergunta"><b>1-) Como eu posso configurar a aba video do meu CS2?</b></span><br>
-                          <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Colocando tudo no maximo</span><br>
-                          <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Colocando tudo no minimo</span><br> 
-                          <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-) Equilibrando as configurações para performance e visualização</span><br><br>
-                 <button onclick="verificar()">Verificar</button><br><br>
-                 <button onclick="proxima()">Próxima</button>
-                 <div id="resposta">
-                 </div>
+                    <span id="pergunta"><b>1-) Como eu posso configurar a aba video do meu CS2?</b></span><br>
+                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Colocando
+                        tudo no maximo</span><br>
+                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Colocando
+                        tudo no minimo</span><br>
+                    <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
+                        Equilibrando as configurações para performance e visualização</span><br><br>
+                    <button onclick="verificar()">Verificar</button><br><br>
+                    <!-- <button onclick="proxima()">Próxima</button> -->
+                    <div id="resposta">
+                    </div>
                 </div>
-           </div>
-
             </div>
+
+        </div>
 
 </body>
 
 <script>
-    var perguntas = ['<b>2-) Por que devemos usar o radar com o máximo de tamanho?</b>','<b>3-) Qual opção de música é recomendada deixar ligada?</b>']
-    var respostas = ['Para melhor visualização do contexto do jogo','Para chamar atenção e ocupar o máximo da tela','Para visualizar o radar com mais detalhes','Começo do jogo','Menu','10 segundos']
+    var perguntas = ['<b>2-) Por que devemos usar o radar com o máximo de tamanho?</b>', '<b>3-) Qual opção de música é recomendada deixar ligada?</b>']
+    var respostas = ['Para melhor visualização do contexto do jogo', 'Para chamar atenção e ocupar o máximo da tela', 'Para visualizar o radar com mais detalhes', 'Começo do jogo', 'Menu', '10 segundos']
     var acertos = 0;
     var acertosConta = 0;
     var erros = 0;
     var errosConta = 0;
     var verificarResultado = 1;
-    function verificar(){
-        if(acertos ==1 || erros ==1){
-            if(ipt_check1.checked){
-            resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
-            setTimeout(function () {
-                        resposta.innerHTML = ''
-                    }, 2500);
-                    acertos ++;
-                    verificarResultado = true;
-                    return true;
-        }else if(ipt_check2.checked||ipt_check3.checked){
-            resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
-            erros++
-            verificarResultado = false;
-            return false;
-        } else{
-            resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
-            verificarResultado = false;
-            return false;
+    function verificar() {
+        if (acertos == 1 && erros == 1) {
+            if (ipt_check3.checked) {
+                resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                setTimeout(function () {
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
+                }, 5500);
+                acertos++;
+                verificarResultado = true;
+                return true;
+            } else if (ipt_check2.checked || ipt_check3.checked) {
+                resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                setTimeout(function () {
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
+                }, 5500);
+                erros++
+                verificarResultado = false;
+                return false;
+            } else {
+                resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+                verificarResultado = false;
+                return false;
+            }
+        } if (acertos == 0 && erros == 0) {
+            if (ipt_check3.checked) {
+                resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                setTimeout(function () {
+                    pergunta.innerHTML = perguntas[0];
+                    resposta1.innerHTML = respostas[0];
+                    resposta2.innerHTML = respostas[1];
+                    resposta3.innerHTML = respostas[2];
+                    resposta.innerHTML = '';
+                }, 5500);
+                acertos++;
+                verificarResultado = true;
+                return true;
+            } else if (ipt_check1.checked || ipt_check2.checked) {
+                resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                setTimeout(function () {
+                    pergunta.innerHTML = perguntas[0];
+                    resposta1.innerHTML = respostas[0];
+                    resposta2.innerHTML = respostas[1];
+                    resposta3.innerHTML = respostas[2];
+                    resposta.innerHTML = '';
+                    resposta.innerHTML = ''
+                }, 2500);
+                erros++
+                verificarResultado = false;
+                return false;
+            } else {
+                resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+                setTimeout(function () {
+                    resposta.innerHTML = ''
+                }, 2500);
+                verificarResultado = false;
+                return false;
+            }
         }
-        }if(acertos == 0 || erros == 0){
-            if(ipt_check3.checked){
-            resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
-            setTimeout(function () {
-                        resposta.innerHTML = ''
-                    }, 2500);
-                    acertos ++;
-                    verificarResultado = true;
-                    return true;
-        }else if(ipt_check1.checked||ipt_check2.checked){
-            resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
-            erros++
-            verificarResultado = false;
-            return false;
-        } else{
-            resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
-            verificarResultado = false;
-            return false;
+        if (acertos == 2 || erros == 2) {
+            if (ipt_check3.checked) {
+                resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                setTimeout(function () {
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
+                }, 2500);
+                acertos++;
+                verificarResultado = true;
+                return true;
+            } else if (ipt_check1.checked || ipt_check2.checked) {
+                resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                setTimeout(function () {
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
+                }, 2500);
+                erros++
+                verificarResultado = false;
+                return false;
+            } else {
+                resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+                verificarResultado = false;
+                return false;
+            }
         }
+        if (acertos == 1 || erros == 1) {
+            if (ipt_check1.checked) {
+                resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                setTimeout(function () {
+                    pergunta.innerHTML = perguntas[1];
+                resposta1.innerHTML = respostas[3];
+                resposta2.innerHTML = respostas[4];
+                resposta3.innerHTML = respostas[5];
+                resposta.innerHTML = ''
+                }, 2500);
+                acertos++;
+                verificarResultado = true;
+                return true;
+            } else if (ipt_check2.checked || ipt_check3.checked) {
+                resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                setTimeout(function () {
+                    pergunta.innerHTML = perguntas[1];
+                resposta1.innerHTML = respostas[3];
+                resposta2.innerHTML = respostas[4];
+                resposta3.innerHTML = respostas[5];
+                resposta.innerHTML = ''
+                }, 2500);
+                erros++
+                verificarResultado = false;
+                return false;
+            } else {
+                resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
+                verificarResultado = false;
+                return false;
+            }
         }
-        if(acertos == 2 || erros == 2){
-            if(ipt_check3.checked){
-            resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
-            setTimeout(function () {
-                        resposta.innerHTML = ''
-                    }, 2500);
-                    acertos ++;
-                    verificarResultado = true;
-                    return true;
-        }else if(ipt_check1.checked||ipt_check2.checked){
-            resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
-            erros++
-            verificarResultado = false;
-            return false;
-        } else{
-            resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
-            verificarResultado = false;
-            return false;
-        }
-        } 
-
     }
     function validarSessao() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NICK_USUARIO;
+        var email = sessionStorage.EMAIL_USUARIO;
+        var nome = sessionStorage.NICK_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+        var b_usuario = document.getElementById("b_usuario");
 
-    if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
-    } else {
-        window.location = "login.html";
+        if (email != null && nome != null) {
+            b_usuario.innerHTML = nome;
+        } else {
+            window.location = "login.html";
+        }
     }
-}
 
     function limparSessao() {
-    sessionStorage.clear();
-    window.location = "login.html";
-}
-    function proxima(){
-    if (verificarResultado) {
-        if (acertos == 1 || erros == 1) {
-            pergunta.innerHTML = perguntas[0];
-            resposta1.innerHTML = respostas[0];
-            resposta2.innerHTML = respostas[1];
-            resposta3.innerHTML = respostas[2];
-        } else if (erros == 2 || acertos == 2) {
-            pergunta.innerHTML = perguntas[1];
-            resposta1.innerHTML = respostas[3];
-            resposta2.innerHTML = respostas[4];
-            resposta3.innerHTML = respostas[5];
-        } else if( erros == 3 || acertos == 3){
-            resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
-        }
-    } else if (verificarResultado == false) {
-        resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`;
-        setTimeout(function () {
-            resposta.innerHTML = '';
-        }, 2500);
-    } else if(verificarResultado == 1){
-        resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`;
-        setTimeout(function () {
-            resposta.innerHTML = '';
-        }, 2500);
+        sessionStorage.clear();
+        window.location = "login.html";
     }
-}
+    //     function proxima(){
+    //         if (acertos == 1 || erros == 1) {
+    //             pergunta.innerHTML = perguntas[0];
+    //             resposta1.innerHTML = respostas[0];
+    //             resposta2.innerHTML = respostas[1];
+    //             resposta3.innerHTML = respostas[2];
+    //         } else if (erros == 2 || acertos == 2) {
+    //             pergunta.innerHTML = perguntas[1];
+    //             resposta1.innerHTML = respostas[3];
+    //             resposta2.innerHTML = respostas[4];
+    //             resposta3.innerHTML = respostas[5];
+    //         } else if( erros == 3 || acertos == 3){
+    //             resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}`;
+    //         }
+    //         else if(verificarResultado==1&&(acertos == 0 || erros ==0)){
+    //         resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`;
+    //         setTimeout(function () {
+    //             resposta.innerHTML = '';
+    //         }, 2500);
+    //     } 
+    //     if (verificarResultado == false) {
+    //         resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`;
+    //         setTimeout(function () {
+    //             resposta.innerHTML = '';
+    //         }, 2500);
+    //     } 
+    // }
 </script>
 
 </html>
