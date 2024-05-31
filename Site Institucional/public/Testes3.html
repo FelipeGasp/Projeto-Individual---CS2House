@@ -47,14 +47,14 @@
 
         <div class="dash">
             <div class="formulario">
-                <h1>Quiz (Capitulo 2)
+                <h1>Quiz (Capitulo 3)
                 </h1><br>
                 <div class="containerform1">
-                    <span id="pergunta"><b>1-) O que é counter-strafe</b></span><br>
-                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Técnica para limpar partes do mapa</span><br>
-                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Técnica para limpar angulos do mapa</span><br>
+                    <span id="pergunta"><b>1-) O que é spray pattern?</b></span><br>
+                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Desenho do recuo das armas para controlar os tiros das armas</span><br>
+                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Técnica para atirar andando</span><br>
                     <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
-                        Técnica para "freiar" o boneco antes de atirar</span><br><br>
+                        Desenho do traçado das balas para atirar com mais precisão</span><br><br>
                     <button onclick="verificar()">Verificar</button><br><br>
                     <div id="resposta">
                     </div>
@@ -66,9 +66,9 @@
 </body>
 
 <script>
-    var perguntas = ['<b>2-) Qual é o objetivo das granadas</b>', '<b>3-) O que é troca(trading)?</b>']
-    var respostas = ['Utilizar para eliminar adversários', 'Ajudar no seu reposicionamento', 'Eliminar possiveis posições onde seus adversários podem estar', 'Trocar a kill do adversário em cima do seu parceiro', 'Trocar posições dos âncoras', 'Trocar de função no meio da partida']
-    var acertos = 0;
+    var perguntas = ['<b>2-) Qual é o objetivo dos mapas de treino (pre-fire, aimlabs e etc)</b>', '<b>3-) O que é crosshair predict?</b>']
+    var respostas = ['Aumentar sua memória muscular e aquecer.', 'Treinar seu conhecimento, memória muscular e controle de tiro', 'Eliminar possiveis erros que você comete antes das partidas', 'Adivinhar(deduzir) a proxima troca de tiro que você pode ter', 'Deduzir onde você deve colocar sua mira', 'Se posicionar em forma de trocar kill']
+    var acertos = 0; 
     var acertosConta = 0;
     var erros = 0;
     var errosConta = 0;
@@ -76,23 +76,23 @@
     function verificar() {
 
         if (acertos == 1 && erros == 1) {
-            if (ipt_check1.checked) {
+            if (ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 5500);
                 acertos++;
                 verificarResultado = true;
-                sessionStorage.CAPITULO_QUIZ = 2;
+                sessionStorage.CAPITULO_QUIZ = 3;
                 return true;
-            } else if (ipt_check2.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
-                }, 5500);
+                }, 2500);
                 erros++
                 verificarResultado = false;
-                sessionStorage.CAPITULO_QUIZ = 2;
+                sessionStorage.CAPITULO_QUIZ = 3;
                 return false;
             } else {
                 resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
@@ -100,7 +100,7 @@
                 return false;
             }
         } if (acertos == 0 && erros == 0) {
-            if (ipt_check3.checked) {
+            if (ipt_check1.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[0];
@@ -112,7 +112,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check1.checked || ipt_check2.checked) {
+            } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[0];
@@ -135,23 +135,23 @@
             }
         }
         if (acertos == 2 || erros == 2) {
-            if (ipt_check1.checked) {
+            if (ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
                 acertos++;
                 verificarResultado = true;
-                sessionStorage.CAPITULO_QUIZ = 2;
+                sessionStorage.CAPITULO_QUIZ = 3;
                 return true;
-            } else if (ipt_check2.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
                 erros++
                 verificarResultado = false;
-                sessionStorage.CAPITULO_QUIZ = 2;
+                sessionStorage.CAPITULO_QUIZ = 3;
                 return false;
             } else {
                 resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
@@ -160,7 +160,7 @@
             }
         }
         if (acertos == 1 || erros == 1) {
-            if (ipt_check3.checked) {
+            if (ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];
@@ -172,7 +172,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check1.checked || ipt_check2.checked) {
+            } else if (ipt_check1.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];

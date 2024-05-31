@@ -49,6 +49,11 @@
             <div class="formulario">
                 <h1>Quiz (Capitulo 1)
                 </h1><br>
+                Deseja pular para algum quiz de outro capitulo? <br><select id="select_quizes" onchange="mudar()">
+                    <option value="#" selected disabled>Selecione uma opção</option> 
+                    <option value="2">Capitulo 2</option> 
+                    <option value="3">Capitulo 3</option>                               
+                     </select>
                 <div class="containerform1">
                     <span id="pergunta"><b>1-) Como eu posso configurar a aba video do meu CS2?</b></span><br>
                     <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Colocando
@@ -75,6 +80,20 @@
     var erros = 0;
     var errosConta = 0;
     var verificarResultado = 1;
+
+function mudar(){
+    if(select_quizes.value == 2){
+        window.location = 'Testes2.html'
+    }else{
+        window.location = 'Testes3.html'
+    }
+}
+
+
+
+
+
+
     function verificar() {
 
         if (acertos == 1 && erros == 1) {
@@ -110,7 +129,7 @@
                     resposta2.innerHTML = respostas[1];
                     resposta3.innerHTML = respostas[2];
                     resposta.innerHTML = '';
-                }, 5500);
+                }, 2500);
                 acertos++;
                 verificarResultado = true;
                 return true;
