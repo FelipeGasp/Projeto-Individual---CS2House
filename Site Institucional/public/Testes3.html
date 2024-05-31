@@ -47,16 +47,14 @@
 
         <div class="dash">
             <div class="formulario">
-                <h1>Quiz (Capitulo 1)
+                <h1>Quiz (Capitulo 2)
                 </h1><br>
                 <div class="containerform1">
-                    <span id="pergunta"><b>1-) Como eu posso configurar a aba video do meu CS2?</b></span><br>
-                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Colocando
-                        tudo no maximo</span><br>
-                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Colocando
-                        tudo no minimo</span><br>
+                    <span id="pergunta"><b>1-) O que é counter-strafe</b></span><br>
+                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Técnica para limpar partes do mapa</span><br>
+                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Técnica para limpar angulos do mapa</span><br>
                     <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
-                        Equilibrando as configurações para performance e visualização</span><br><br>
+                        Técnica para "freiar" o boneco antes de atirar</span><br><br>
                     <button onclick="verificar()">Verificar</button><br><br>
                     <div id="resposta">
                     </div>
@@ -68,8 +66,8 @@
 </body>
 
 <script>
-    var perguntas = ['<b>2-) Por que devemos usar o radar com o máximo de tamanho?</b>', '<b>3-) Qual opção de música é recomendada deixar ligada?</b>']
-    var respostas = ['Para melhor visualização do contexto do jogo', 'Para chamar atenção e ocupar o máximo da tela', 'Para visualizar o radar com mais detalhes', 'Começo do jogo', 'Menu', '10 segundos']
+    var perguntas = ['<b>2-) Qual é o objetivo das granadas</b>', '<b>3-) O que é troca(trading)?</b>']
+    var respostas = ['Utilizar para eliminar adversários', 'Ajudar no seu reposicionamento', 'Eliminar possiveis posições onde seus adversários podem estar', 'Trocar a kill do adversário em cima do seu parceiro', 'Trocar posições dos âncoras', 'Trocar de função no meio da partida']
     var acertos = 0;
     var acertosConta = 0;
     var erros = 0;
@@ -78,14 +76,14 @@
     function verificar() {
 
         if (acertos == 1 && erros == 1) {
-            if (ipt_check3.checked) {
+            if (ipt_check1.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 5500);
                 acertos++;
                 verificarResultado = true;
-                sessionStorage.CAPITULO_QUIZ = 1;
+                sessionStorage.CAPITULO_QUIZ = 2;
                 return true;
             } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
@@ -94,7 +92,7 @@
                 }, 5500);
                 erros++
                 verificarResultado = false;
-                sessionStorage.CAPITULO_QUIZ = 1;
+                sessionStorage.CAPITULO_QUIZ = 2;
                 return false;
             } else {
                 resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
@@ -137,23 +135,23 @@
             }
         }
         if (acertos == 2 || erros == 2) {
-            if (ipt_check3.checked) {
+            if (ipt_check1.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
                 acertos++;
                 verificarResultado = true;
-                sessionStorage.CAPITULO_QUIZ = 1;
+                sessionStorage.CAPITULO_QUIZ = 2;
                 return true;
-            } else if (ipt_check1.checked || ipt_check2.checked) {
+            } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
                 erros++
                 verificarResultado = false;
-                sessionStorage.CAPITULO_QUIZ = 1;
+                sessionStorage.CAPITULO_QUIZ = 2;
                 return false;
             } else {
                 resposta.innerHTML = `<span style="color:red;">Selecione uma resposta</span>`
@@ -162,7 +160,7 @@
             }
         }
         if (acertos == 1 || erros == 1) {
-            if (ipt_check1.checked) {
+            if (ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];
@@ -174,7 +172,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check2.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];
@@ -257,9 +255,9 @@
 
         if (resposta.ok) {
 
-          setTimeout(() => {
-            window.location = "Testes2.html";
-          }, "1000");
+        //   setTimeout(() => {
+        //     window.location = "Testes3.html";
+        //   }, "3000");
 
         } else {
           throw "Houve um erro ao tentar realizar o insert!";

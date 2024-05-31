@@ -22,7 +22,7 @@ function autenticar(req, res) {
 {
                                 if (resultadoAutenticar.length > 0) {
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
+                                        idUsuario: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
                                         nick: resultadoAutenticar[0].nick,
                                         senha: resultadoAutenticar[0].senha,
@@ -86,7 +86,45 @@ function cadastrar(req, res) {
     }
 }
 
+function jogarbanco(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var capitulo = req.body.capituloServer;
+    var acertos = req.body.acertosServer;
+    var erros = req.body.errosServer;
+    var idUsuario = req.body.idUsuarioServer;
+
+    // Faça as validações dos valores
+    if (capitulo == undefined) {
+        res.status(400).send("Seu capitulo está undefined!");
+    } else if (erros == undefined) {
+        res.status(400).send("Seu erros está undefined!");
+    } else if (erros == undefined) {
+        res.status(400).send("Sua erros está undefined!");
+    } else if (idUsuario == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.jogarbanco(capitulo, acertos, erros, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o insert! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    jogarbanco
 }
