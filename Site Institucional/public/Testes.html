@@ -62,7 +62,7 @@
                         tudo no minimo</span><br>
                     <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
                         Equilibrando as configurações para performance e visualização</span><br><br>
-                    <button onclick="verificar()">Verificar</button><br><br>
+                    <button id="clickVer" onclick="verificar()">Verificar</button><br><br>
                     <div id="resposta">
                     </div>
                 </div>
@@ -80,6 +80,8 @@
     var erros = 0;
     var errosConta = 0;
     var verificarResultado = 1;
+    var botao = document.getElementById('clickVer');
+    console.log(botao);
 
 function mudar(){
     if(select_quizes.value == 2){
@@ -89,15 +91,11 @@ function mudar(){
     }
 }
 
-
-
-
-
-
     function verificar() {
-
         if (acertos == 1 && erros == 1) {
             if (ipt_check3.checked) {
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
@@ -108,6 +106,8 @@ function mudar(){
                 return true;
             } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 5500);
@@ -123,25 +123,30 @@ function mudar(){
         } if (acertos == 0 && erros == 0) {
             if (ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[0];
                     resposta1.innerHTML = respostas[0];
                     resposta2.innerHTML = respostas[1];
                     resposta3.innerHTML = respostas[2];
                     resposta.innerHTML = '';
+                    botao.disabled = false;
                 }, 2500);
                 acertos++;
                 verificarResultado = true;
                 return true;
             } else if (ipt_check1.checked || ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                botao.disabled = true;
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[0];
                     resposta1.innerHTML = respostas[0];
                     resposta2.innerHTML = respostas[1];
                     resposta3.innerHTML = respostas[2];
                     resposta.innerHTML = '';
-                    resposta.innerHTML = ''
+                    botao.disabled = false;
+
                 }, 2500);
                 erros++
                 verificarResultado = false;
@@ -158,6 +163,8 @@ function mudar(){
         if (acertos == 2 || erros == 2) {
             if (ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
@@ -167,6 +174,8 @@ function mudar(){
                 return true;
             } else if (ipt_check1.checked || ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 setTimeout(function () {
                     resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
                 }, 2500);
@@ -182,6 +191,8 @@ function mudar(){
         }
         if (acertos == 1 || erros == 1) {
             if (ipt_check1.checked) {
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];
@@ -189,18 +200,22 @@ function mudar(){
                 resposta2.innerHTML = respostas[4];
                 resposta3.innerHTML = respostas[5];
                 resposta.innerHTML = ''
+                botao.disabled = false;
                 }, 2500);
                 acertos++;
                 verificarResultado = true;
                 return true;
             } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
+                botao.disabled = true;
+                console.log("Desabilitando o botão");
                 setTimeout(function () {
                     pergunta.innerHTML = perguntas[1];
                 resposta1.innerHTML = respostas[3];
                 resposta2.innerHTML = respostas[4];
                 resposta3.innerHTML = respostas[5];
                 resposta.innerHTML = ''
+                botao.disabled = false;
                 }, 2500);
                 erros++
                 verificarResultado = false;

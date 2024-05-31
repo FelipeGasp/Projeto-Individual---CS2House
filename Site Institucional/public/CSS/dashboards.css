@@ -549,3 +549,7 @@ canvas {
   touch-action: manipulation;
   width: auto;
 }
+.containerform1 button:disabled{
+  cursor: not-allowed;
+  background-color: grey;
+}
