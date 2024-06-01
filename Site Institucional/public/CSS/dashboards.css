@@ -484,12 +484,15 @@ canvas {
 }
 .grafico{
   position: absolute;
-  top: 20%;
-  left: 35%;
+  top: 10%;
+  left: 25%;
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   border-radius: 30px;
+  width: 45%;
+  text-align: center;
 }
+
 .contagem{
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;

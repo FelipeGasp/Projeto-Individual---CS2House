@@ -18,6 +18,8 @@ idTentativa INT,
 idCapitulo INT,
 dtTentativa TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 fkUsuario INT,
+acertos INT,
+erros INT,
 CONSTRAINT pkComposta PRIMARY KEY (idTentativa,idCapitulo),
 CONSTRAINT fkUsuarioQuiz FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario));
 
@@ -25,7 +27,5 @@ ALTER TABLE quiz ADD COLUMN acertos INT;
 ALTER TABLE quiz add column erros INT;
 ALTER TABLE usuario MODIFY COLUMN senha VARCHAR(30);
 
-SELECT * FROM usuario;
 
 
-SELECT * FROM quiz;
