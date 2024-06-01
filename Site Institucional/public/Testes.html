@@ -104,7 +104,7 @@ function mudar(){
                 verificarResultado = true;
                 sessionStorage.CAPITULO_QUIZ = 1;
                 return true;
-            } else if (ipt_check2.checked || ipt_check3.checked) {
+            } else if (ipt_check2.checked || ipt_check1.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 console.log("Desabilitando o botão");
