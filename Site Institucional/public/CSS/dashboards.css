@@ -442,14 +442,26 @@ canvas {
   justify-content: space-around;
   flex-direction: row;
 }
+.containersecoes2{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  flex-direction: row;
+}
+.containersecoes3{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  flex-direction: row;
+}
 .secoes{
   box-shadow: 1px 1px 4px gray;
   background-color: white;
   width: 80%;
-  height: 40%;
+  height: 70%;
   position: absolute;
-  top: 150px;
-  left: 200px;
+  top: 30px;
+  left: 160px;
   border-radius: 30px;
   padding: 5px 5px 5px 5px;
 
@@ -462,19 +474,20 @@ canvas {
   justify-content: center;
   flex-direction: row;
   margin-right: 2%;
+  margin-top: 2%;
 }
 .containersecao{
   margin-bottom: 15px;
 }
 .bemvindo{
   position: absolute;
-  bottom: 140px;
+  bottom: 10px;
   left: 200px;
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   width: 80%;
   position: absolute;
-  left: 200px;
+  left: 160px;
   border-radius: 30px;
   padding-top: 5px;
   padding-left: 5px;
@@ -498,7 +511,7 @@ canvas {
   box-shadow: 1px 1px 4px gray;
   border-radius: 30px;
   position: absolute;
-  left: 41%;
+  left: 37%;
 }
 .grafico2{
   position: absolute;
@@ -555,4 +568,11 @@ canvas {
 .containerform1 button:disabled{
   cursor: not-allowed;
   background-color: grey;
+}
+.containercheck{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }

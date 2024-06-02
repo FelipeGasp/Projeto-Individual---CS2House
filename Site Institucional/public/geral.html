@@ -56,15 +56,48 @@
                     <div class="secao1">
                         <h4>Capitulo 1 | Por onde começar?</h4>
                         <br>
-                        <iframe width="460" height="215" src="https://www.youtube.com/embed/iN8QREKID4E?si=aWhRRqry_-MYVt5s" title="Capitulo1" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="360" height="115" src="https://www.youtube.com/embed/iN8QREKID4E?si=aWhRRqry_-MYVt5s" title="Capitulo1" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <br>
                     </div>
                     <div class="secao1">
                         <br>
                         <h4>Capitulo 2 | Aprendendo o básico</h4>
                         <br>
-                        <iframe width="460" height="215" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="360" height="115" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <br>
                     </div>
                 </div>
+                <div class="containersecoes2">
+                    <br>
+                    <h4>Capitulo 3 | Como ser imprevisivel </h4>
+                    <br>
+                    <iframe width="360" height="115" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <br>
+                    <h4>Capitulo 4 | Como ler os adversários </h4>
+                    <br>
+                    <iframe width="360" height="115" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   <br> 
+                </div>                        
+                <div class="containersecoes3">
+                    <br>
+                    <h4>Capitulo 5 | Entendendo funções </h4>
+                    <br>
+                    <iframe width="360" height="115" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <br>
+                    <h4>Capitulo 6 | Como masterizar teamplay, playbook e o avançado do jogo</h4>
+                    <br>
+                    <iframe width="360" height="115" src="https://www.youtube.com/embed/bEcJPQ97--8?si=ZwJxmcF2FEuW6m13" title="Capitulo2" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   <br> 
+                </div>
+                <div class="containercheck">
+                   <span style="font-size: 15px;">Aula 1 > </span> <input type="checkbox" id="ipt_aula1" onclick="marcar_aula()">
+                   <span style="font-size: 15px;">Aula 2 > </span><input type="checkbox" id="ipt_aula2" onclick="marcar_aula()">
+                   <span style="font-size: 15px;">Aula 3 > </span> <input type="checkbox" id="ipt_aula3"onclick="marcar_aula()">
+                   <span style="font-size: 15px;">Aula 4 > </span> <input type="checkbox" id="ipt_aula4"onclick="marcar_aula()">
+                   <span style="font-size: 15px;">Aula 5 > </span> <input type="checkbox" id="ipt_aula5"onclick="marcar_aula()">
+                   <span style="font-size: 15px;">Aula 6 > </span> <input type="checkbox" id="ipt_aula6"onclick="marcar_aula()">
+                </div>
+
             </div>
             <div class="bemvindo">
                 <div class="containerBem">
@@ -77,6 +110,7 @@
 </body>
 
 <script>
+    var aulas_assistidas = 0;
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NICK_USUARIO;
@@ -94,7 +128,207 @@ function validarSessao() {
     sessionStorage.clear();
     window.location = "login.html";
 }
+function marcar_aula(){
+    var idUsuario = sessionStorage.ID_USUARIO;
+    if(ipt_aula1.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula1.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
+            if (resposta.ok) {
+                console.log(resposta);
+
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+   else if(ipt_aula2.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula2.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+    else if(ipt_aula3.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula3.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+    else if(ipt_aula4.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula4.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+    else if(ipt_aula5.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula5.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+    else if(ipt_aula6.checked){
+        aulas_assistidas++;
+        var aulasAssistidas = aulas_assistidas;
+        ipt_aula6.disabled = true
+        fetch(`/medidas/atualizarAulas/${idUsuario}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : sessionStorage.ID_USUARIO,
+                aulasServer : aulasAssistidas
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o update");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+}
 </script>
 
 </html>

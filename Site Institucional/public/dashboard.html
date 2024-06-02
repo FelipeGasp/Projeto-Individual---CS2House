@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="CSS/dashboards.css">
 </head>
 
-<body onload="validarSessao(), obterDadosGrafico()">
+<body onload="validarSessao(), obterDadosGrafico(), mostrar_aulas()">
 
     <div class="janela">
 
@@ -46,7 +46,7 @@
 
         <div class="dash1">
             <div class="contagem">
-                <h2>Você já assistiu: X aulas </h2>
+                <h2 id="b_contagem"></h2>
             </div>
             <div class="grafico">
                 <h1>Aproveitamento do ultimo teste</h1>
@@ -91,7 +91,8 @@ if (proximaAtualizacao != undefined) {
 
 fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (resposta) {
+        response.json().then
+        (function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
@@ -238,5 +239,30 @@ fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (
     });
 
 }
+function mostrar_aulas(){
+    var idUsuario = sessionStorage.ID_USUARIO;
+      fetch(`/medidas/mostrarAulas/${idUsuario}`, {
+        method: "GET",
+      })
+      .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (dados) {
+
+                var aulasAssistidas = dados[0]['aulasAssistidas']; 
+
+                if (aulasAssistidas !== undefined) {
+                    sessionStorage.AULAS_ASSISTIDAS = aulasAssistidas;
+                    b_contagem.innerHTML = `Você tem ${aulasAssistidas} aulas assistidas`;
+                } else {
+                    console.error("Atributo 'aulasAssistidas' não encontrado na resposta JSON");
+                }
+            })
+            .catch(function (error) {
+                console.error("Erro ao obter as aulas assistidas:", error);
+            });
+        }
+
+
 </script>
 </html>
