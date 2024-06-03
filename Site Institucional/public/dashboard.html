@@ -49,11 +49,13 @@
                 <h2 id="b_contagem"></h2>
             </div>
             <div class="grafico">
-                <h1>Aproveitamento do ultimo teste</h1>
+                <h1>Aproveitamento do ultimo teste</h1><br>
+                <span style="font-size: 25px;" id="spannada">Você ainda não fez nenhum quiz</span>
                 <canvas id="myChart"></canvas>
               </div>
               <div class="grafico2">
                 <h1>Linha do tempo das aulas</h1>
+                <span id="spannada2">Dados não disponíveis</span>
                 <canvas id="myChart2"></canvas>
               </div>
 
@@ -111,6 +113,7 @@ fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (res
 let myChart;
 function plotarGrafico(resposta, idUsuario) {
 
+spannada.innerHTML = ''
 console.log('iniciando plotagem do gráfico...');
 
 // Criando estrutura para plotar gráfico - labels

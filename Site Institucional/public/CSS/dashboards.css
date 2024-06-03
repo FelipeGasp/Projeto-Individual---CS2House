@@ -519,7 +519,9 @@ canvas {
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   border-radius: 30px;
-  right: 38%;
+  right: 32%;
+  height: 25%;
+  text-align: center;
 }
 .formulario{
   background-color: whitesmoke;
