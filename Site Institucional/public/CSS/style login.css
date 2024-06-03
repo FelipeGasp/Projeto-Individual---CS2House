@@ -212,7 +212,7 @@ body{
     padding-right: 15px;
     /* padding-bottom: 25px; */
     width: 11%;
-    height: 35%;
+    height: 39%;
     transition-property: width, height, padding-top;
     transition-duration: 1.2s;
     transition-timing-function: ease;
