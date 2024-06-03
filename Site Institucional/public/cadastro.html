@@ -61,8 +61,6 @@
 </html>
 <script>
 function cadastrar() {
-
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nickVar = ipt_nickname.value;
@@ -83,8 +81,10 @@ function cadastrar() {
       return false;
     } else if(senhaVar != confirmacaoSenhaVar){
         erro.innerHTML = ' <span style="color:red;">Confirmação de senha não coincide</span>'
+        return false;
     }  else if(ipt_email.value.indexOf('@') == -1){
         erro.innerHTML = ' <span style="color:red;">E-mail não é válido</span>'
+        return false;
     }
     else {
       setInterval(erro.innerHTML = '', 5000);
