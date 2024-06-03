@@ -49,6 +49,11 @@
             <div class="formulario">
                 <h1>Quiz (Capitulo 2)
                 </h1><br>
+                Deseja pular para algum quiz de outro capitulo? <br><select id="select_quizes" onchange="mudar()">
+                    <option value="#" selected disabled>Selecione uma opção</option> 
+                    <option value="1">Capitulo 1</option> 
+                    <option value="3">Capitulo 3</option>                               
+                     </select>
                 <div class="containerform1">
                     <span id="pergunta"><b>1-) O que é counter-strafe</b></span><br>
                     <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Técnica para limpar partes do mapa</span><br>
@@ -279,6 +284,14 @@
         finalizarAguardar();
       });
     }
+
+    function mudar(){
+    if(select_quizes.value == 1){
+        window.location = 'Testes.html'
+    }else{
+        window.location = 'Testes3.html'
+    }
+}
 </script>
 
 </html>

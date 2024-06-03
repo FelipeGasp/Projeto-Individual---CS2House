@@ -49,6 +49,11 @@
             <div class="formulario">
                 <h1>Quiz (Capitulo 3)
                 </h1><br>
+                Deseja pular para algum quiz de outro capitulo? <br><select id="select_quizes" onchange="mudar()">
+                    <option value="#" selected disabled>Selecione uma opção</option> 
+                    <option value="1">Capitulo 1</option> 
+                    <option value="2">Capitulo 2</option>                               
+                     </select>
                 <div class="containerform1">
                     <span id="pergunta"><b>1-) O que é spray pattern?</b></span><br>
                     <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Desenho do recuo das armas para controlar os tiros das armas</span><br>
@@ -280,6 +285,14 @@
         finalizarAguardar();
       });
     }
+
+    function mudar(){
+    if(select_quizes.value == 2){
+        window.location = 'Testes2.html'
+    }else{
+        window.location = 'Testes.html'
+    }
+}
 </script>
 
 </html>

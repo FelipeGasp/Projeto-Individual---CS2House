@@ -458,7 +458,7 @@ canvas {
   box-shadow: 1px 1px 4px gray;
   background-color: white;
   width: 80%;
-  height: 70%;
+  height: 80%;
   position: absolute;
   top: 30px;
   left: 160px;
@@ -481,11 +481,12 @@ canvas {
 }
 .bemvindo{
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 200px;
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   width: 80%;
+  height: 10%;
   position: absolute;
   left: 160px;
   border-radius: 30px;
@@ -577,4 +578,10 @@ canvas {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  font-size: 20px;
+}
+.containercheck input {
+
+  height: 15px;
+  width: 30px;
 }
