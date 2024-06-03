@@ -6,7 +6,7 @@ nick VARCHAR(15),
 email VARCHAR(45),
 senha VARCHAR(16),
 horas INT,
-aulasAssistidas INT);
+aulasAssistidas INT NOT NULL DEFAULT 0);
 
 CREATE TABLE habilidades (
 idHabilidade INT PRIMARY KEY AUTO_INCREMENT,
