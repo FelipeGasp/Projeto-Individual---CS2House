@@ -9,7 +9,7 @@ horas INT,
 aulasAssistidas INT NOT NULL DEFAULT 0,
 dtAulas date default NULL
 );
-
+UPDATE usuario SET aulasAssistidas = 3, dtAulas = curdate() WHERE idUsuario = 4;
 SELECT * FROM usuario;
 CREATE TABLE habilidades (
 idHabilidade INT PRIMARY KEY AUTO_INCREMENT,

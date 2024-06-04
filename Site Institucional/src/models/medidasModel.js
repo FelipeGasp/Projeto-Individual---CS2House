@@ -17,7 +17,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
 }
 
 function atualizarAula(idUsuario, aulas_assistidas){
-    var instrucaoSql = `UPDATE usuario SET aulasAssistidas = ${aulas_assistidas} AND dtAulas = curdate() WHERE idUsuario = ${idUsuario};`;
+    var instrucaoSql = `UPDATE usuario SET aulasAssistidas = ${aulas_assistidas}, dtAulas = curdate() WHERE idUsuario = ${idUsuario};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
