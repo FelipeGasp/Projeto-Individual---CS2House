@@ -47,7 +47,7 @@
 
         <div class="dash">
             <div class="formulario">
-                <h1>Quiz (Capitulo 3)
+                <h1>Quiz (Capitulo 6)
                 </h1><br>
                 Deseja pular para algum quiz de outro capitulo? <br><select id="select_quizes" onchange="mudar()">
                     <option value="#" selected disabled>Selecione uma opção</option> 
@@ -59,11 +59,11 @@
                     <option value="6">Capitulo 6</option>                            
                      </select>
                 <div class="containerform1">
-                    <span id="pergunta"><b>1-) O que é spray pattern?</b></span><br>
-                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Desenho do recuo das armas para controlar os tiros das armas</span><br>
-                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Técnica para atirar andando</span><br>
+                    <span id="pergunta"><b>1-) Como saber o que o adversário vai fazer?</b></span><br>
+                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Perguntando no chat</span><br>
+                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Tentando interpretar o que ele fez nas rodadas anteriores</span><br>
                     <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
-                        Desenho do traçado das balas para atirar com mais precisão</span><br><br>
+                        Provocando respostas duras através de agressões no inicio de cada round</span><br><br>
                     <button id="clickVer" onclick="verificar()">Verificar</button><br><br>
                     <div id="resposta">
                     </div>
@@ -75,8 +75,8 @@
 </body>
 
 <script>
-    var perguntas = ['<b>2-) Qual é o objetivo dos mapas de treino (pre-fire, aimlabs e etc)</b>', '<b>3-) O que é crosshair predict?</b>']
-    var respostas = ['Aumentar sua memória muscular e aquecer.', 'Treinar seu conhecimento, memória muscular e controle de tiro', 'Eliminar possiveis erros que você comete antes das partidas', 'Adivinhar(deduzir) a proxima troca de tiro que você pode ter', 'Deduzir onde você deve colocar sua mira', 'Se posicionar em forma de trocar kill']
+    var perguntas = ['<b>2-) Como aprender com as tomadas de decisão dos adversários nas rodadas anteriores?</b>', '<b>3-) O que é crosshair placement?</b>']
+    var respostas = ['Se perguntando o que fez o adversário realizar aquilo', 'Ver a demo depois da partida para nas proximas entender melhor small pictures', 'Se perguntar porque morreu', 'Se posicionar de forma a sempre acertar os tiros', 'Colocar a mira na cabeça do adversário sempre', 'Colocar a mira onde o adversário vai aparecer']
     var acertos = 0; 
     var acertosConta = 0;
     var erros = 0;
@@ -84,8 +84,7 @@
     var verificarResultado = 1;
     var botao = document.getElementById('clickVer');
 
-
-        function mudar(){
+    function mudar(){
         if(select_quizes.value == 1){
             window.location = 'Testes.html'
         }
@@ -104,21 +103,21 @@
     function verificar() {
 
         if (acertos == 1 && erros == 1) {
-            if (ipt_check2.checked) {
+            if (ipt_check3.checked) {
                 botao.disabled = true;
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
-                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Terminar!</button>`;
                 }, 5500);
                 acertos++;
                 verificarResultado = true;
                 sessionStorage.CAPITULO_QUIZ = 3;
                 return true;
-            } else if (ipt_check1.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
-                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Terminar!</button>`;
                 }, 2500);
                 erros++
                 verificarResultado = false;
@@ -130,7 +129,7 @@
                 return false;
             }
         } if (acertos == 0 && erros == 0) {
-            if (ipt_check1.checked) {
+            if (ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -144,7 +143,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check2.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -172,7 +171,7 @@
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
-                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Terminar!</button>`;
                 }, 2500);
                 acertos++;
                 verificarResultado = true;
@@ -182,7 +181,7 @@
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
-                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Próximo quiz</button>`;
+                    resposta.innerHTML = `Fim do quiz! Você acertou ${acertosConta = acertos} e errou ${errosConta = erros}<br><button onclick="terminar()">Terminar!</button>`;
                 }, 2500);
                 erros++
                 verificarResultado = false;
@@ -195,7 +194,7 @@
             }
         }
         if (acertos == 1 || erros == 1) {
-            if (ipt_check2.checked) {
+            if (ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -209,7 +208,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check1.checked || ipt_check3.checked) {
+            } else if (ipt_check1.checked || ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -295,8 +294,7 @@
         if (resposta.ok) {
 
         
-            window.location = "Testes4.html";
-        
+            window.location = "geral.html";
 
         } else {
           throw "Houve um erro ao tentar realizar o insert!";
@@ -307,14 +305,6 @@
         finalizarAguardar();
       });
     }
-
-    function mudar(){
-    if(select_quizes.value == 2){
-        window.location = 'Testes2.html'
-    }else{
-        window.location = 'Testes.html'
-    }
-}
 </script>
 
 </html>

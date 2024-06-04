@@ -1,4 +1,4 @@
-
+CREATE DATABASE cs2house;
 USE cs2house;
 CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -6,8 +6,11 @@ nick VARCHAR(15),
 email VARCHAR(45),
 senha VARCHAR(16),
 horas INT,
-aulasAssistidas INT NOT NULL DEFAULT 0);
+aulasAssistidas INT NOT NULL DEFAULT 0,
+dtAulas date default NULL
+);
 
+SELECT * FROM usuario;
 CREATE TABLE habilidades (
 idHabilidade INT PRIMARY KEY AUTO_INCREMENT,
 role VARCHAR(10),
@@ -24,3 +27,5 @@ erros INT,
 CONSTRAINT pkComposta PRIMARY KEY (idTentativa,idCapitulo),
 CONSTRAINT fkUsuarioQuiz FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario));
 
+
+SELECT * FROM usuario;

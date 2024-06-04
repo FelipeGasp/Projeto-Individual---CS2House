@@ -51,8 +51,12 @@
                 </h1><br>
                 Deseja pular para algum quiz de outro capitulo? <br><select id="select_quizes" onchange="mudar()">
                     <option value="#" selected disabled>Selecione uma opção</option> 
-                    <option value="1">Capitulo 1</option> 
-                    <option value="3">Capitulo 3</option>                               
+                    <option value="1">Capitulo 1</option>
+                    <option value="2">Capitulo 2</option> 
+                    <option value="3">Capitulo 3</option>   
+                    <option value="4">Capitulo 4</option>
+                    <option value="5">Capitulo 5</option>
+                    <option value="6">Capitulo 6</option>                            
                      </select>
                 <div class="containerform1">
                     <span id="pergunta"><b>1-) O que é counter-strafe</b></span><br>
@@ -79,6 +83,23 @@
     var errosConta = 0;
     var verificarResultado = 1;
     var botao = document.getElementById('clickVer');
+
+    function mudar(){
+        if(select_quizes.value == 1){
+            window.location = 'Testes.html'
+        }
+    else if(select_quizes.value == 2){
+        window.location = 'Testes2.html'
+    }else if(select_quizes.value == 3){
+        window.location = 'Testes3.html'
+    }else if(select_quizes.value == 4){
+        window.location = 'Testes4.html'
+    }else if(select_quizes.value == 5){
+        window.location = 'Testes5.html'
+    }else if(select_quizes.value==6){
+        window.location = 'Testes6.html'
+    }
+}
     function verificar() {
         if (acertos == 1 && erros == 1) {
             if (ipt_check1.checked) {
@@ -271,9 +292,9 @@
 
         if (resposta.ok) {
 
-          setTimeout(() => {
+        
             window.location = "Testes3.html";
-          }, "3000");
+          
 
         } else {
           throw "Houve um erro ao tentar realizar o insert!";
