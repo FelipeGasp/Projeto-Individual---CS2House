@@ -137,7 +137,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -157,8 +157,7 @@ function marcar_aula(){
                 console.log("Houve um erro ao tentar realizar o update");
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
-                });
+                            });
             }
 
         }).catch(function (erro) {
@@ -170,7 +169,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -183,7 +182,7 @@ function marcar_aula(){
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
 
             } else {
 
@@ -203,7 +202,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -216,7 +215,7 @@ function marcar_aula(){
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
 
             } else {
 
@@ -236,7 +235,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -249,7 +248,7 @@ function marcar_aula(){
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
 
             } else {
 
@@ -269,7 +268,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -282,7 +281,7 @@ function marcar_aula(){
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
 
             } else {
 
@@ -302,7 +301,7 @@ function marcar_aula(){
         aulas_assistidas++;
         var aulasAssistidas = aulas_assistidas;
         fetch(`/medidas/atualizarAulas/${idUsuario}`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -315,7 +314,7 @@ function marcar_aula(){
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
 
             } else {
 

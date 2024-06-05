@@ -7,6 +7,13 @@ function buscarUltimasMedidas(idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function buscarUltimasAulas(idUsuario) {
+
+    var instrucaoSql = `SELECT sum(qtdAulas) as Total, dtAula as Dia FROM aula  WHERE fkUsuario = ${idUsuario} GROUP BY dtAula;;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 function buscarMedidasEmTempoReal(idUsuario) {
 
@@ -17,7 +24,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
 }
 
 function atualizarAula(idUsuario, aulas_assistidas){
-    var instrucaoSql = `UPDATE usuario SET aulasAssistidas = ${aulas_assistidas}, dtAulas = curdate() WHERE idUsuario = ${idUsuario};`;
+    var instrucaoSql = `INSERT INTO aula VALUES(default, ${aulas_assistidas},${idUsuario},curdate());`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -25,13 +32,14 @@ function atualizarAula(idUsuario, aulas_assistidas){
 
 function mostrarAulas(idUsuario) {
 
-    var instrucaoSql = `SELECT aulasAssistidas FROM usuario WHERE idUsuario = ${idUsuario}`;
+    var instrucaoSql = `SELECT sum(qtdAulas)FROM aula WHERE fkUsuario = ${idUsuario} `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 module.exports = {
     buscarUltimasMedidas,
+    buscarUltimasAulas,
     buscarMedidasEmTempoReal,
     atualizarAula,
     mostrarAulas
