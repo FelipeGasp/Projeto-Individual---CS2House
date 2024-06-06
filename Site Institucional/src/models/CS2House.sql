@@ -33,6 +33,8 @@ CONSTRAINT fkUsuarioQuiz FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario));
 DELETE FROM aula WHERE fkUsuario = 6;
 
 INSERT INTO aula VALUES
-(default, 2,6,'2024-06-15');
+(default, 2,6,'2024-06-06');
 SELECT * FROM aula;
 truncate TABLE aula;
+SELECT sum(qtdAulas) as Total, dtAula as Dia FROM aula  WHERE fkUsuario = 6 GROUP BY dtAula;
+SELECT SUM(qtdAulas) AS Total, dtAula AS Dia FROM aula WHERE fkUsuario = 6 GROUP BY dtAula ORDER BY dtAula DESC LIMIT 7;
