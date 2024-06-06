@@ -9,7 +9,7 @@ function buscarUltimasMedidas(idUsuario) {
 }
 function buscarUltimasAulas(idUsuario) {
 
-    var instrucaoSql = `SELECT sum(qtdAulas) as Total, dtAula as Dia FROM aula  WHERE fkUsuario = ${idUsuario} GROUP BY dtAula;;`;
+    var instrucaoSql = `SELECT SUM(qtdAulas) AS Total, dtAula AS Dia FROM aula WHERE fkUsuario = ${idUsuario} GROUP BY dtAula ORDER BY dtAula DESC LIMIT 7;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -32,7 +32,7 @@ function atualizarAula(idUsuario, aulas_assistidas){
 
 function mostrarAulas(idUsuario) {
 
-    var instrucaoSql = `SELECT sum(qtdAulas)FROM aula WHERE fkUsuario = ${idUsuario} `;
+    var instrucaoSql = `SELECT sum(qtdAulas) as TOTAL FROM aula WHERE fkUsuario = ${idUsuario} `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

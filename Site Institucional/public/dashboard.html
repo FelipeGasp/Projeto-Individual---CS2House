@@ -97,7 +97,7 @@ fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (res
         (function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
-
+            spannada.innerHTML = ''
             plotarGrafico(resposta, idUsuario);
 
         });
@@ -108,7 +108,7 @@ fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (res
 })
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        spannada1.innerHTML = 'Dados não disponíveis'
+        spannada.innerHTML = 'Dados não disponíveis'
 
     });
 }
@@ -215,36 +215,39 @@ fetch(`/medidas/aulas/${idUsuario}`, { cache: 'no-store' }).then(function (respo
 }
 
 function plotarGrafico2(resposta, idUsuario) {
+    spannada.innerHTML = '';
+    console.log('iniciando plotagem do gráfico...');
 
-spannada.innerHTML = ''
-console.log('iniciando plotagem do gráfico...');
+    // Criando estrutura para plotar gráfico - labels e dados
+    let labels = [];
+    let data = [];
 
-// Criando estrutura para plotar gráfico - labels
-let labels = resposta.map((_, index) => `Ultima aula`);
-
-// Criando estrutura para plotar gráfico - dados
-let dados = {
-    labels: [],
-    datasets: [{
-        label: 'Aulas Assistidas',
-        data: [],
-        backgroundColor: '#FF0000',
-        borderColor: '#FF0000',
-        borderWidth: 1,
+    for (let i = 0; i < resposta.length; i++) {
+        labels.push(resposta[i].Dia); // Adiciona o dia ao label
+        data.push(resposta[i].Total); // Adiciona o total de aulas ao data
     }
-    ]
-};
+
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Aulas Assistidas',
+            data: data,
+            backgroundColor: '#0c1323',
+            borderColor: '#FF9300',
+            borderWidth: 1,
+        }]
+    };
 
 console.log('----------------------------------------------')
 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
 console.log(resposta)
-
+console.log(resposta[0]['Total'])
 // Inserindo valores recebidos em estrutura para plotar o gráfico
-for (i = resposta.length-1; i >= 0; i--) {
-    var registro = resposta[i];
-    dados.datasets[0].data.push(resposta[registro].Total);
-    dados.labels.push(resposta[registro].Dia);
-}
+// for (i = resposta.length-1; i >= 0; i--) {
+//     var registro = resposta[i];
+//     dados.datasets[0].data.push(resposta[0]['Total']);
+//     dados.labels.push(resposta[0]['Dia']);
+// }
 
 console.log('----------------------------------------------')
 console.log('O gráfico será plotado com os respectivos valores:')
@@ -272,7 +275,6 @@ let myChart = new Chart(
     config2
 );
 
-console.log("sdsjdkkjdksjdksjdskdjskdjskdjksdj")
 
 
 
@@ -354,13 +356,14 @@ function mostrar_aulas(){
 
                 console.log(dados)
 
-                var qtdAulas= dados[0].Total; 
+                var qtdAulas= dados[0]['TOTAL']; 
 
-                if (qtdAulas !== undefined) {
+                if (qtdAulas != null || qtdAulas !=undefined) {
                     sessionStorage.AULAS_ASSISTIDAS = qtdAulas;
                     b_contagem.innerHTML = `Você tem ${qtdAulas} aulas assistidas`;
                 } else {
                     console.error("Atributo 'qtdAulas' não encontrado na resposta JSON");
+                    b_contagem.innerHTML = 'Aulas não disponiveis, assista alguma aula para exibir!'
                 }
             })
             .catch(function (error) {

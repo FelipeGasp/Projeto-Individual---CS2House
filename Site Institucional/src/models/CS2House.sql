@@ -1,4 +1,4 @@
-CREATE DATABASE cs2house;
+
 USE cs2house;
 CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -9,13 +9,15 @@ horas INT,
 aulasAssistidas INT NOT NULL DEFAULT 0,
 dtAulas date default NULL
 );
-UPDATE usuario SET aulasAssistidas = 3, dtAulas = curdate() WHERE idUsuario = 4;
 SELECT * FROM usuario;
-CREATE TABLE habilidades (
-idHabilidade INT PRIMARY KEY AUTO_INCREMENT,
-role VARCHAR(10),
+
+CREATE TABLE aula (
+idAula INT PRIMARY KEY AUTO_INCREMENT,
+qtdAulas INT,
 fkUsuario INT,
+dtAula DATE,
 CONSTRAINT fkUsuario foreign key (fkUsuario) REFERENCES usuario(idUsuario));
+
 
 CREATE TABLE quiz(
 idTentativa INT auto_increment,
@@ -28,4 +30,9 @@ CONSTRAINT pkComposta PRIMARY KEY (idTentativa,idCapitulo),
 CONSTRAINT fkUsuarioQuiz FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario));
 
 
-SELECT * FROM usuario;
+DELETE FROM aula WHERE fkUsuario = 6;
+
+INSERT INTO aula VALUES
+(default, 2,6,'2024-06-15');
+SELECT * FROM aula;
+truncate TABLE aula;

@@ -460,10 +460,10 @@ canvas {
   width: 80%;
   height: 80%;
   position: absolute;
-  top: 30px;
+  top: 5px;
   left: 160px;
   border-radius: 30px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 0px;
 
 }
 .secoes span{
@@ -520,14 +520,15 @@ canvas {
   background-color: whitesmoke;
   box-shadow: 1px 1px 4px gray;
   border-radius: 30px;
-  right: 34%;
-  height: 350px;
+  right: 25%;
+  height: 300px;
+  margin-left: 200px;
   text-align: center;
 }
 
 .grafico2  canvas{
-  height: 265px !important;
-  width: 582px !important;
+  height: 215px !important;
+  width: 552px !important;
   box-sizing: border-box;
 }
 .formulario{
@@ -590,4 +591,27 @@ canvas {
 
   height: 15px;
   width: 30px;
+}
+.button {
+  border: 1px solid transparent;
+  background-color: #0c1323;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #ffa200;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #0156ff solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
