@@ -59,11 +59,11 @@
                     <option value="6">Capitulo 6</option>                            
                      </select>
                 <div class="containerform1">
-                    <span id="pergunta"><b>1-) Como saber o que o adversário vai fazer?</b></span><br>
-                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Perguntando no chat</span><br>
-                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Tentando interpretar o que ele fez nas rodadas anteriores</span><br>
+                    <span id="pergunta"><b>1-) O que é playbook?</b></span><br>
+                    <input type="radio" id="ipt_check1" name="checker" class="check"> <span id="resposta1">A-) Livro de jogadas individuais para realizar</span><br>
+                    <input type="radio" id="ipt_check2" name="checker" class="check"> <span id="resposta2">B-) Variação de jogadas individuais e em grupo</span><br>
                     <input type="radio" id="ipt_check3" name="checker" class="check"> <span id="resposta3">C-)
-                        Provocando respostas duras através de agressões no inicio de cada round</span><br><br>
+                        Utilização de jogadas individuais para realizar teamplay</span><br><br>
                     <button id="clickVer" onclick="verificar()">Verificar</button><br><br>
                     <div id="resposta">
                     </div>
@@ -75,8 +75,8 @@
 </body>
 
 <script>
-    var perguntas = ['<b>2-) Como aprender com as tomadas de decisão dos adversários nas rodadas anteriores?</b>', '<b>3-) O que é crosshair placement?</b>']
-    var respostas = ['Se perguntando o que fez o adversário realizar aquilo', 'Ver a demo depois da partida para nas proximas entender melhor small pictures', 'Se perguntar porque morreu', 'Se posicionar de forma a sempre acertar os tiros', 'Colocar a mira na cabeça do adversário sempre', 'Colocar a mira onde o adversário vai aparecer']
+    var perguntas = ['<b>2-) Como ser um teamplayer muito bom?</b>', '<b>3-) Como não se estressar jogando?</b>']
+    var respostas = ['Sempre utilizando granadas para ajudar seus parceiros', 'Trocar tiro junto com ele', 'Esperar ele trocar tiro para realizar uma troca(trade)', 'Entender que é apenas um jogo', 'Jogar com seus colegas de equipe sendo positivo', 'Treinar com positividade']
     var acertos = 0; 
     var acertosConta = 0;
     var erros = 0;
@@ -103,7 +103,7 @@
     function verificar() {
 
         if (acertos == 1 && erros == 1) {
-            if (ipt_check3.checked) {
+            if (ipt_check2.checked) {
                 botao.disabled = true;
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 setTimeout(function () {
@@ -129,7 +129,7 @@
                 return false;
             }
         } if (acertos == 0 && erros == 0) {
-            if (ipt_check2.checked) {
+            if (ipt_check1.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -143,7 +143,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check1.checked || ipt_check3.checked) {
+            } else if (ipt_check2.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -194,7 +194,7 @@
             }
         }
         if (acertos == 1 || erros == 1) {
-            if (ipt_check3.checked) {
+            if (ipt_check2.checked) {
                 resposta.innerHTML = `<span style="color:green;">Resposta certa!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
@@ -208,7 +208,7 @@
                 acertos++;
                 verificarResultado = true;
                 return true;
-            } else if (ipt_check1.checked || ipt_check2.checked) {
+            } else if (ipt_check1.checked || ipt_check3.checked) {
                 resposta.innerHTML = `<span style="color:red;">Resposta errada!</span>`
                 botao.disabled = true;
                 setTimeout(function () {
