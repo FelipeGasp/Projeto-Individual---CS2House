@@ -154,7 +154,7 @@ body{
     position: absolute;
     display: flex;
     left: 80px;
-    top: 0;
+    top: -130px;
     flex-direction: column;
     /* margin-top: 1%; */
     margin-bottom: 15%;
@@ -163,19 +163,22 @@ body{
     border-radius: 15px;
     box-shadow: 5px 6px 15px black;
     align-items: center;
+    text-align: center;
     padding: 15px;
     width: 20%;
+    height: 80vh;
     transition-property: width, height;
     transition-duration: 1.2s;
     transition-timing-function: ease;
 }
 .card1:hover{
-     width: 24%; 
+    width: 24%;
 }
 .card2{
     position: absolute;
     display: flex;
     right: 140px;
+    top: -190px;
     flex-direction: column;
     margin-top: 4%;
     /* margin-bottom: 15%; */
@@ -185,13 +188,15 @@ body{
     box-shadow: 5px 6px 15px black;
     align-items: center;
     padding: 15px 0px ;
+    height: 80vh;
     width: 20%;
-    transition-property: width, height;
+    transition-property: width;
     transition-duration: 1.2s;
     transition-timing-function: ease;
 }
 .card2:hover{
     width: 24%;
+    height: 80vh;
 }
 .card3{
     position: absolute;
